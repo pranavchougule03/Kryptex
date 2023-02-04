@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.cardview.widget.CardView;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     SwitchCompat not;
 
     public void cardClick(View view){
-        startActivity(LoginActivity);
+        startActivity(new Intent(MainActivity.this,LoginActivity.class));
     }
 
 
