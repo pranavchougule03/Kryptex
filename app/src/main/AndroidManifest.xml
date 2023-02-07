@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:name=".App"
-    >
+    android:name=".App">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.REQUEST_COMPANION_RUN_IN_BACKGROUND" />
 
     <application
         android:allowBackup="true"
@@ -16,13 +16,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Kryptex"
         tools:targetApi="31">
+        <receiver
+            android:name=".MyReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:label="restartservice"/>
+
         <service
             android:name=".MyService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
 
         <activity
             android:name=".MainActivity"
+            android:enabled="true"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,7 +44,7 @@
         <activity
             android:name=".LoginActivity"
             android:exported="true"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>

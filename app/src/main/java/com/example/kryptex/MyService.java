@@ -68,9 +68,19 @@ public class MyService extends Service {
 
                               },
                 0,
-                2000);
-        return super.onStartCommand(intent, flags, startId);
+                600000);
+//        return super.onStartCommand(intent, flags, startId);
+        return START_STICKY;
+    }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+//        Log.i("EXIT", "ondestroy!");
+        Intent broadcastIntent = new Intent(this, MyReceiver.class);
+
+        sendBroadcast(broadcastIntent);
+//        stoptimertask();
     }
 
     public void notificationPusher(String worker,String curhash,String avghash,String balance,int color){

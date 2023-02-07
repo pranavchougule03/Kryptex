@@ -90,7 +90,15 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
+//    @Override
+//    protected void onPause() {
+//        super.onPause();
+//        SharedPreferences switchState = getSharedPreferences("switch",0);
+//        boolean b = switchState.getBoolean("oldstate",false);
+//        if (b){
+//            startService(new Intent(this, MyService.class));
+//        }
+//    }
 
     public void cardClick(View view){
         startActivity(new Intent(MainActivity.this,LoginActivity.class));
