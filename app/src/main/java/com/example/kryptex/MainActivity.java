@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     String on = "On",off = "Off";
-    SwitchCompat not;
+    Switch not;
 
     public void cardClick(View view){
         startActivity(new Intent(MainActivity.this,LoginActivity.class));
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void oldSwitch(){
-        not = (SwitchCompat) findViewById(R.id.switch1);
+        not =  findViewById(R.id.switch1);
         SharedPreferences switchState = getSharedPreferences("switch",0);
         boolean b = switchState.getBoolean("oldstate",false);
         not.setChecked(b);
