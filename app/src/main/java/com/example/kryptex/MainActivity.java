@@ -31,24 +31,30 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 
+
 import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 //    private TextView scrap;
-
+    private TextView workers,hashrate,avg_hashrate,balance;
     String on = "On",off = "Off";
-    SwitchCompat not;
+    Switch not;
 
 
     public class Background extends AsyncTask<String,Void,String>{
         @Override
         protected String doInBackground(String... strings) {
+
             try {
                 Document doc = (Document) Jsoup.connect(strings[0]).get();
                 Elements e = doc.getElementsByClass("font-bold text-2xl md:text-lg xl:text-2xl");
                 String[] words=e.text().split("\\s");
 //                notificationPusher(words[0],words[1],words[3],words[5],0);
 //                scrap.setText(e.text());
+                workers.setText(words[0]);
+                hashrate.setText(words[1]);
+                avg_hashrate.setText(words[3]);
+                balance.setText(words[5]);
                 return e.text();
             }
             catch (Exception e){
@@ -60,7 +66,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
+        workers = findViewById(R.id.workers);
+        hashrate = findViewById(R.id.hashrate);
+        avg_hashrate = findViewById(R.id.avg_hashrate);
+        balance = findViewById(R.id.balance);
 
         SharedPreferences switchState = getSharedPreferences("switch",0);
         boolean b = switchState.getBoolean("oldstate",false);
@@ -70,6 +81,9 @@ public class MainActivity extends AppCompatActivity {
         String url1 = "https://pool.kryptex.com/en/xmr/miner/stats/";
         SharedPreferences address = getSharedPreferences("address",MODE_PRIVATE);
         String url2 = address.getString("current_address","abcd");
+
+        Background bg = new Background();
+        bg.execute(url1+url2);
 
         if (b){
             startService(new Intent(this, MyService.class));
@@ -100,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void oldSwitch(){
-        not = (SwitchCompat) findViewById(R.id.switch1);
+        not =  findViewById(R.id.switch1);
         SharedPreferences switchState = getSharedPreferences("switch",0);
         boolean b = switchState.getBoolean("oldstate",false);
         not.setChecked(b);

@@ -20,7 +20,7 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences c_a = getSharedPreferences("address",MODE_PRIVATE);
         String s = c_a.getString("current_address","Your wallet adress");
         ad = (TextView) findViewById(R.id.textView);
-        String f = "YOUR ADRESS IS " + s;
+        String f = "YOUR ADRESS IS:\n" + s;
         ad.setText(f);
     }
 
@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
         String input_address = input.getText().toString();
         SharedPreferences address = getSharedPreferences("address",MODE_PRIVATE);
         SharedPreferences.Editor mining_address = address.edit();
-        String f = "YOUR ADRESS IS " + input_address;
+        String f = "YOUR ADRESS IS:\n" + input_address;
         mining_address.putString("current_address",input_address);
         mining_address.apply();
         Toast.makeText(this,"Your Address is saved sucessful",Toast.LENGTH_SHORT).show();

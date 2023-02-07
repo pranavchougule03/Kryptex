@@ -162,7 +162,7 @@
             <TextView
                 android:layout_width="200sp"
                 android:layout_height="35sp"
-                android:text="WORKERS:"
+                android:text="Workers:"
                 android:textStyle="bold"
                 android:textSize="25sp"
                 android:gravity="center"
@@ -176,7 +176,7 @@
                 android:layout_marginLeft="50sp"
                 android:layout_marginBottom="15sp"
                 android:text="0"
-                android:textSize="32sp"
+                android:textSize="20sp"
                 android:gravity="center"
                 android:textColor="@color/black"
 
@@ -234,7 +234,7 @@
                 android:layout_marginLeft="50sp"
                 android:layout_marginBottom="15sp"
                 android:text="0"
-                android:textSize="32sp"
+                android:textSize="20sp"
                 android:gravity="center"
                 android:textColor="@color/black"
 
@@ -279,10 +279,11 @@
                 android:layout_width="222dp"
                 android:layout_height="35sp"
                 android:gravity="center"
-                android:text="AVG HASHRATE:"
+                android:text="Avg Hash-Rate:"
+                android:textStyle="bold"
                 android:textColor="@color/black"
                 android:textSize="25sp"
-                android:textStyle="bold" />
+                 />
             <TextView
                 android:id="@+id/avg_hashrate"
                 android:layout_width="100sp"
@@ -291,7 +292,7 @@
                 android:layout_marginLeft="50sp"
                 android:layout_marginBottom="15sp"
                 android:text="0"
-                android:textSize="32sp"
+                android:textSize="20sp"
                 android:gravity="center"
                 android:textColor="@color/black"
 
@@ -333,7 +334,7 @@
             <TextView
                 android:layout_width="200sp"
                 android:layout_height="35sp"
-                android:text="BALANCE:"
+                android:text="Balance:"
                 android:textStyle="bold"
                 android:textSize="25sp"
                 android:gravity="center"
@@ -341,13 +342,13 @@
                 />
             <TextView
                 android:id="@+id/balance"
-                android:layout_width="100sp"
+                android:layout_width="120sp"
                 android:layout_height="35sp"
                 android:layout_gravity="bottom"
                 android:layout_marginLeft="50sp"
                 android:layout_marginBottom="15sp"
                 android:text="0"
-                android:textSize="32sp"
+                android:textSize="20sp"
                 android:gravity="center"
                 android:textColor="@color/black"
 
