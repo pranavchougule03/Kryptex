@@ -68,7 +68,7 @@ public class MyService extends Service {
 
                               },
                 0,
-                600000);
+                2000);
         return super.onStartCommand(intent, flags, startId);
 
     }
