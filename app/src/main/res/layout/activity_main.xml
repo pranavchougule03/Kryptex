@@ -220,7 +220,7 @@
             <TextView
                 android:layout_width="200sp"
                 android:layout_height="35sp"
-                android:text="Hashrate"
+                android:text="Hash-Rate"
                 android:textStyle="bold"
                 android:textSize="25sp"
                 android:gravity="center"

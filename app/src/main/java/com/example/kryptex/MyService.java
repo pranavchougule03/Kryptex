@@ -69,19 +69,10 @@ public class MyService extends Service {
                               },
                 0,
                 600000);
-//        return super.onStartCommand(intent, flags, startId);
         return START_STICKY;
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-//        Log.i("EXIT", "ondestroy!");
-        Intent broadcastIntent = new Intent(this, MyReceiver.class);
 
-        sendBroadcast(broadcastIntent);
-//        stoptimertask();
-    }
 
     public void notificationPusher(String worker,String curhash,String avghash,String balance,int color){
         BitmapDrawable bitmapDrawable = (BitmapDrawable) ResourcesCompat.getDrawable(getResources(),R.drawable.kryptex,null);
@@ -105,8 +96,12 @@ public class MyService extends Service {
             notificationManager.createNotificationChannel(new NotificationChannel(CHANNEL_ID,"stats",NotificationManager.IMPORTANCE_HIGH));
         }
 
+        SharedPreferences switchState = getSharedPreferences("switch",0);
+        boolean b = switchState.getBoolean("oldstate",false);
 
-        notificationManager.notify(NOTIFICATION_ID,notification);
+        if (b){
+            notificationManager.notify(NOTIFICATION_ID,notification);
+        }
 
     }
 }

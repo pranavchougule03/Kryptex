@@ -15,6 +15,7 @@
         android:inputType="textPersonName"
         android:hint="Enter Wallet Address"
         android:textColorHint="@color/black"
+        android:textColor="@color/black"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
